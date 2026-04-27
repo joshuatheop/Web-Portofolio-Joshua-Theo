@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --color-nebula-purple: #6d28d9;
+  --color-nebula-blue: #1d4ed8;
+  --color-nebula-pink: #db2777;
+}
+
+@layer base {
+  body {
+    @apply transition-colors duration-500 overflow-x-hidden;
+    cursor: none;
+  }
+  
+  .dark body {
+    @apply bg-[#050505] text-white;
+  }
+  
+  .light body {
+    @apply bg-[#f8f9fa] text-[#1a1a1a];
+  }
+}
+
+.glass {
+  @apply backdrop-blur-lg border transition-all duration-300;
+}
+
+.dark .glass {
+  @apply bg-white/5 border-white/10 text-white;
+}
+
+.light .glass {
+  @apply bg-black/5 border-black/10 text-[#1a1a1a];
+}
+
+/* Light Mode Overrides for opacity-based text */
+.light .opacity-50 { @apply opacity-70; }
+.light .opacity-60 { @apply opacity-80; }
+.light .opacity-70 { @apply opacity-90; }
+
+.light .bg-white\/5 { @apply bg-black/5; }
+.light .border-white\/10 { @apply border-black/10; }
+
+.nebula-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dark .nebula-bg {
+  background: radial-gradient(circle at 50% 50%, rgba(109, 40, 217, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(29, 78, 216, 0.1) 0%, transparent 40%);
+  animation: cosmicMove 30s infinite alternate ease-in-out;
+}
+
+.light .nebula-bg {
+  background: #f8f9fa;
+}
+
+.interactive-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes cosmicMove {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.1) translate(-2%, -2%); }
+  100% { transform: scale(1) translate(2%, 2%); }
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: currentColor;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease-out;
+}
+
+.custom-cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
