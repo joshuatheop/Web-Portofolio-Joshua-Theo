@@ -1,11 +1,9 @@
 import React from 'react';
 import { Mail, Phone, Instagram, Linkedin, Github, Send } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("Message sent! (Simulation)");
-  };
+  const [state, handleSubmit] = useForm("mbdqeajk");
 
   return (
     <section id="contact" className="py-32">
@@ -51,41 +49,57 @@ const Contact = () => {
           </div>
 
           <div className="glass p-10 rounded-[40px]">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <label className="text-sm font-bold uppercase tracking-widest text-white/50">Name</label>
-                <input
-                  type="text"
-                  required
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-nebula-purple transition-colors"
-                  placeholder="Your Name"
-                />
+            {state.succeeded ? (
+              <div className="flex flex-col items-center justify-center h-full space-y-4 text-center py-10">
+                <div className="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mb-4">
+                  <Send size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-white">Pesan Terkirim!</h3>
+                <p className="text-white/60">Terima kasih telah menghubungi saya. Saya akan segera membalas pesan Anda.</p>
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold uppercase tracking-widest text-white/50">Email</label>
-                <input
-                  type="email"
-                  required
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-nebula-purple transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold uppercase tracking-widest text-white/50">Message</label>
-                <textarea
-                  required
-                  rows={4}
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-nebula-purple transition-colors resize-none"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-nebula-purple hover:bg-nebula-purple/80 text-white font-bold py-5 rounded-2xl flex items-center justify-center gap-3 transition-all interactive"
-              >
-                Send Message <Send size={20} />
-              </button>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-bold uppercase tracking-widest text-white/50">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-nebula-purple transition-colors"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold uppercase tracking-widest text-white/50">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-nebula-purple transition-colors"
+                    placeholder="your@email.com"
+                  />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-sm mt-1 block" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold uppercase tracking-widest text-white/50">Message</label>
+                  <textarea
+                    name="message"
+                    required
+                    rows={4}
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-nebula-purple transition-colors resize-none"
+                    placeholder="Tell me about your project..."
+                  />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-sm mt-1 block" />
+                </div>
+                <button
+                  type="submit"
+                  disabled={state.submitting}
+                  className="w-full bg-nebula-purple hover:bg-nebula-purple/80 text-white font-bold py-5 rounded-2xl flex items-center justify-center gap-3 transition-all interactive disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {state.submitting ? 'Mengirim...' : 'Kirim Pesan'} <Send size={20} />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
