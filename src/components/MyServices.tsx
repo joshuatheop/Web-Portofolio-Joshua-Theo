@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { StaggerContainer, StaggerItem } from './ScrollReveal';
 
 const SERVICES = [
   {
@@ -29,17 +30,19 @@ const MyServices = () => {
         <h2 className="text-4xl md:text-5xl font-bold mb-4">My Quality Services</h2>
       </div>
 
-      <div className="flex flex-col space-y-4 md:space-y-6 w-full px-4 md:px-0">
+      <StaggerContainer className="flex flex-col space-y-4 md:space-y-6 w-full px-4 md:px-0">
         {SERVICES.map((service, index) => {
           const isHovered = hoveredIndex === index;
           return (
-            <div
+            <StaggerItem
               key={index}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(0)}
-              className={`group flex flex-col md:flex-row md:items-center justify-between p-6 md:p-8 rounded-3xl border border-black/10 dark:border-white/10 transition-all duration-500 cursor-pointer ${isHovered ? 'bg-nebula-purple border-transparent shadow-xl shadow-nebula-purple/20' : 'hover:bg-nebula-purple/5'
-                }`}
             >
+              <div
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(0)}
+                className={`group flex flex-col md:flex-row md:items-center justify-between p-6 md:p-8 rounded-3xl border border-black/10 dark:border-white/10 transition-all duration-500 cursor-pointer ${isHovered ? 'bg-nebula-purple border-transparent shadow-xl shadow-nebula-purple/20' : 'hover:bg-nebula-purple/5'
+                  }`}
+              >
               <div className="flex items-center gap-6 md:w-1/3 mb-4 md:mb-0">
                 <span className={`text-xl font-medium transition-colors duration-500 ${isHovered ? 'text-white' : 'text-nebula-purple'}`}>
                   0{index + 1}
@@ -59,10 +62,11 @@ const MyServices = () => {
               <div className={`hidden md:flex items-center justify-center transition-transform duration-500 ${isHovered ? '' : 'rotate-90'}`}>
                 <ArrowUpRight size={28} className={isHovered ? 'text-white' : 'text-black/30 dark:text-white/30'} />
               </div>
-            </div>
+              </div>
+            </StaggerItem>
           );
         })}
-      </div>
+      </StaggerContainer>
     </section>
   );
 };

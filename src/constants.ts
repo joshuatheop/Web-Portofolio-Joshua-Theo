@@ -77,12 +77,6 @@ export const PROJECTS: Project[] = [
     description: "A smart monitoring system designed to optimize biogas production and enhance usage safety for rural households. It addresses the lack of real-time production data and safety concerns regarding gas leaks that previously hindered biogas adoption in villages",
     color: "#800000",
     location: { name: "Pasirhalang, Cisarua, Bandung Barat", lat: -6.827280, lng: 107.522122 },
-    details: [
-      "Directed the end-to-end project lifecycle,",
-      "Designed the project's visual identity",
-      "Built the mobile application",
-      "Managed the procurement of technical components and materials"
-    ],
     skills: ["Entrepreneurship", "Meta Ads", "Marketing Strategy", "Product Design"],
     image: "/BIMO/video.mp4",
     thumbnail: "/BIMO/video.mp4",
@@ -101,7 +95,7 @@ export const PROJECTS: Project[] = [
       "Project Management",
       "Strategic Leadership",
       "Community Engagement",
-      "Social Innovation.",
+      "Social Innovation",
       "Product Design (Canva/Figma)",
       "Mobile App Development",
       "System Architecture Design."
@@ -148,7 +142,6 @@ export const PROJECTS: Project[] = [
       { type: 'image', src: '/Aerobilliard/image1.png', alt: 'AeroBilliard homepage' },
       { type: 'image', src: '/Aerobilliard/image2.png', alt: 'AeroBilliard store' },
     ],
-    details: []
   },
   {
     id: "training-odoo",
@@ -158,12 +151,6 @@ export const PROJECTS: Project[] = [
     description: "A strategic ERP education and certification initiative established between Odoo and Telkom University's Information Systems Department.",
     color: "#714B67",
     location: { name: "Telkom University", lat: -6.9740, lng: 107.6303 },
-    details: [
-      "Spearheaded a strategic partnership with Odoo for long-term ERP certification programs",
-      "Organized a large-scale public lecture for over 400 participants",
-      "Executed technical hands-on training sessions for 50+ attendees",
-      "Strengthened industry-academic synergy between the lab and PT Odoo Software Indonesia"
-    ],
     skills: ["ERP", "Strategic Partnership", "Project Management", "Event Organizing", "Leadership"],
     image: "/TrainingOdoo/thumbnail.JPG",
     thumbnail: "/TrainingOdoo/thumbnail.JPG",
@@ -191,6 +178,44 @@ export const PROJECTS: Project[] = [
       { type: 'image', src: '/TrainingOdoo/thumbnail.JPG', alt: 'Training Odoo documentation' },
       { type: 'image', src: '/TrainingOdoo/image4.JPG', alt: 'Training Odoo documentation' },
       { type: 'image', src: '/TrainingOdoo/image2.JPG', alt: 'Training Odoo documentation' },
+    ]
+  },
+  {
+    id: "gardenese",
+    title: "Gardenese",
+    role: "Project Leader, Business Analyst, UI/UX Designer",
+    period: "December 2024 - March 2025",
+    description: "An integrated home gardening platform providing professional gardening services for urban dwellers.",
+    color: "#008080",
+    location: { name: "Telkom University", lat: -6.9740, lng: 107.6303 },
+    skills: ["Business Development", "Market Analysis", "UI/UX", "Leadership"],
+    image: "/Gardenese/thumbnail.png",
+    thumbnail: "/Gardenese/thumbnail.png",
+    category: "Digital Product",
+    device: "Mobile",
+    associatedWith: "Telkom University",
+    industry: "Home Gardening & Agri-Tech",
+    year: "2024",
+    overview: "Gardenese addresses the challenges of urban farming by offering an all-in-one ecosystem that includes a marketplace for gardening supplies, expert consultations, and smart plant maintenance features",
+    goal: "To simplify the gardening experience for urban communities through technology, ensuring sustainable and successful home-scale plant cultivation",
+    approach: [
+      { title: "Product Strategy & Analysis", body: "Conducted deep market research and financial planning (TAM, SAM, SOM) to validate the business model and identify key customer pain points." },
+      { title: "User-Centric UI/UX Design", body: "Designed high-fidelity mobile prototypes using Figma, focusing on a seamless user journey for features like AI plant scanning and expert booking." },
+      { title: "Project Leadership", body: "Managed the end-to-end development process, coordinating cross-functional tasks to ensure the product vision aligned with market needs and feasibility." }
+    ],
+    detailSkills: [
+      "User Research",
+      "Vusiness Model Canvas",
+      "Financial Forecasting",
+      "Product Design (Canva/Figma)",
+      "Prototyping",
+      "Mobile App Development",
+      "Stakeholder Analysis",
+    ],
+    collage: [
+      { type: 'image', src: '/Gardenese/thumbnail.png', alt: 'Gardenese thumbnail' },
+      { type: 'image', src: '/Gardenese/image1.png', alt: 'Gardenese motto' },
+      { type: 'video', src: '/Gardenese/video1.mp4', alt: 'Gardenese MVP' },
     ]
   }
 ];

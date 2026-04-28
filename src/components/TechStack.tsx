@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollReveal } from './ScrollReveal';
 
 const techGroups = [
   {
@@ -44,6 +45,7 @@ const marqueeItems = [...allTools, ...allTools, ...allTools];
 const TechStack = () => {
   return (
     <section className="py-20 relative overflow-hidden">
+      <ScrollReveal yOffset={40} duration={0.8}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 mb-12">
         <div className="text-center">
           <p className="opacity-50 max-w-2xl mx-auto">The software, languages, and platforms I use to bring ideas to life.</p>
@@ -69,6 +71,7 @@ const TechStack = () => {
           ))}
         </div>
       </div>
+      </ScrollReveal>
 
       <style>{`
         @keyframes tech-marquee {

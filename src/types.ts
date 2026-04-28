@@ -22,7 +22,6 @@ export interface Project {
     lat: number;
     lng: number;
   };
-  details: string[]
   skills: string[];
   image: string;
   thumbnail?: string; // thumbnail for "other projects" card

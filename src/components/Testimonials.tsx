@@ -1,6 +1,7 @@
 import React from 'react';
 import { TESTIMONIALS } from '../constants';
 import { Star } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 const Testimonials = () => {
   // We duplicate array multiples times to make sure it covers wide screens smoothly 
@@ -35,21 +36,25 @@ const Testimonials = () => {
     <section id="testimonials" className="py-24 overflow-hidden relative">
       {/* Title Section */}
       <div className="text-center mb-16 px-6 relative z-10">
-        <h2 className="text-5xl font-bold mb-4">What They Say</h2>
-        <p className="opacity-50 text-lg max-w-2xl mx-auto">Impact and impressions left on clients and colleagues.</p>
+        <ScrollReveal yOffset={40} duration={0.8}>
+          <h2 className="text-5xl font-bold mb-4">What They Say</h2>
+          <p className="opacity-50 text-lg max-w-2xl mx-auto">Impact and impressions left on clients and colleagues.</p>
+        </ScrollReveal>
       </div>
 
-      <div className="relative flex flex-col gap-8 w-full block">
-        {/* Row 1: Moves Left */}
-        <div className="flex w-max animate-marquee">
-          {marqueeItemsRow1.map((t, i) => renderCard(t, i))}
+      <ScrollReveal yOffset={60} duration={1}>
+        <div className="relative flex flex-col gap-8 w-full block">
+          {/* Row 1: Moves Left */}
+          <div className="flex w-max animate-marquee">
+            {marqueeItemsRow1.map((t, i) => renderCard(t, i))}
+          </div>
+          
+          {/* Row 2: Moves Right */}
+          <div className="flex w-max animate-marquee-reverse">
+            {marqueeItemsRow2.map((t, i) => renderCard(t, i))}
+          </div>
         </div>
-        
-        {/* Row 2: Moves Right */}
-        <div className="flex w-max animate-marquee-reverse">
-          {marqueeItemsRow2.map((t, i) => renderCard(t, i))}
-        </div>
-      </div>
+      </ScrollReveal>
 
       <style>{`
         @keyframes marquee {

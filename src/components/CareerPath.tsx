@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CAREERS, ORGANIZATIONS } from '../constants';
 import { Calendar, Briefcase, Award, Building } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 type Tab = 'career' | 'organization';
 
@@ -19,8 +20,10 @@ const CareerPath = () => {
     <section id="career" className="py-20 relative px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-4">Journey & Roadmap</h2>
-          <p className="opacity-50 mb-12">My evolution through organizations and professional roles.</p>
+          <ScrollReveal yOffset={40} duration={0.8}>
+            <h2 className="text-5xl font-bold mb-4">Journey & Roadmap</h2>
+            <p className="opacity-50 mb-12">My evolution through organizations and professional roles.</p>
+          </ScrollReveal>
           
           {/* Toggle Switch Design */}
           <div className="flex justify-center mb-16 w-full px-2 lg:px-0">

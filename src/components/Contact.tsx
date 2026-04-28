@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, Phone, Instagram, Linkedin, Github, Send } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
+import { ScrollReveal } from './ScrollReveal';
 
 const Contact = () => {
   const [state, handleSubmit] = useForm("mbdqeajk");
@@ -10,11 +11,14 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div className="space-y-12">
-            <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+            <ScrollReveal yOffset={40}>
+              <h2 className="text-4xl md:text-6xl font-bold leading-tight">
               Let's build something <span className="text-nebula-purple">extraordinary</span> together.
-            </h2>
+              </h2>
+            </ScrollReveal>
 
-            <div className="space-y-6">
+            <ScrollReveal yOffset={40} delay={0.2}>
+              <div className="space-y-6">
               <a href="mailto:joshuatheo1604@gmail.com" className="flex items-center gap-4 text-xl hover:text-nebula-purple transition-colors interactive">
                 <div className="w-12 h-12 rounded-full glass flex items-center justify-center">
                   <Mail size={20} />
@@ -27,9 +31,11 @@ const Contact = () => {
                 </div>
                 +62 853 3394 7309
               </a>
-            </div>
+              </div>
+            </ScrollReveal>
 
-            <div className="flex gap-4">
+            <ScrollReveal yOffset={40} delay={0.4}>
+              <div className="flex gap-4">
               {[
                 { icon: <Instagram />, href: "https://www.instagram.com/joshuatheop" },
                 { icon: <Linkedin />, href: "https://www.linkedin.com/in/joshua-theo-pasqualito" },
@@ -46,9 +52,11 @@ const Contact = () => {
                 </a>
               ))}
             </div>
+            </ScrollReveal>
           </div>
 
-          <div className="glass p-10 rounded-[40px]">
+          <ScrollReveal yOffset={60} delay={0.6}>
+            <div className="glass p-10 rounded-[40px]">
             {state.succeeded ? (
               <div className="flex flex-col items-center justify-center h-full space-y-4 text-center py-10">
                 <div className="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mb-4">
@@ -99,8 +107,9 @@ const Contact = () => {
                   {state.submitting ? 'Mengirim...' : 'Kirim Pesan'} <Send size={20} />
                 </button>
               </form>
-            )}
-          </div>
+              )}
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

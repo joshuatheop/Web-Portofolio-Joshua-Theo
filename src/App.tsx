@@ -81,10 +81,7 @@ const HomePage = () => (
             Future IT Project Manager
           </div>
           <h1 className="text-6xl md:text-7xl xl:text-8xl font-extrabold leading-[0.9] tracking-tighter">
-            Joshua Theo <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-nebula-purple to-nebula-pink">
-              Pasqualito
-            </span>
+            Joshua Theo Pasqualito<br />
           </h1>
           <p className="text-lg md:text-xl opacity-60 max-w-lg leading-relaxed font-medium">
             Information Systems student at Telkom University (GPA 3.91).

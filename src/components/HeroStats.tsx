@@ -61,8 +61,9 @@ const HeroStats = () => {
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 + 0.5, duration: 0.5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
               className="text-center group relative cursor-crosshair pt-8 md:pt-0 first:pt-0 flex flex-col items-center justify-center"
             >
               <div className="text-5xl md:text-7xl font-black text-white relative inline-block leading-none font-mono tracking-tighter w-full min-h-[80px] flex items-center justify-center">

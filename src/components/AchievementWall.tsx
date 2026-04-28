@@ -16,7 +16,8 @@ const AchievementWall = () => {
               key={achievement.title}
               layout
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className="group relative glass rounded-3xl overflow-hidden aspect-[4/3] interactive"

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../constants';
 import { ArrowRight, ArrowLeft, Github, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ScrollReveal } from './ScrollReveal';
 
 const isVideo = (src: string) => /\.(mp4|webm|mov|ogg)$/i.test(src);
 
@@ -37,12 +38,14 @@ const ProjectJourney = () => {
     <section id="projects" className="py-20 relative overflow-hidden">
       {/* ── Section Header ── */}
       <div className="max-w-7xl mx-auto px-4 md:px-12 mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div>
-          <h2 className="text-5xl font-bold mb-2">Project Showcase</h2>
-          <p className="opacity-50 text-sm">
-            My professional journey and selected works.
-          </p>
-        </div>
+        <ScrollReveal yOffset={30}>
+          <div>
+            <h2 className="text-5xl font-bold mb-2">Project Showcase</h2>
+            <p className="opacity-50 text-sm">
+              My professional journey and selected works.
+            </p>
+          </div>
+        </ScrollReveal>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
